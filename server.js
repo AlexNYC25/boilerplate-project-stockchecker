@@ -8,7 +8,11 @@ const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
 
+const mongoose = require('mongoose');
+
 const app = express();
+
+mongoose.connect(process.env.DB, {useNewUrlParser: true});
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
